@@ -45,18 +45,18 @@ public class HelloController {
     }
 
     @PostMapping("/api/admin/login")
-    public Map<String, Object> adminLogin(LoginDTO loginDTO){
+    public Map<String, Object> adminLogin(LoginDTO loginDTO) {
         System.out.println("进入请求");
         User user = userService.adminLogin(loginDTO.getUsername(), loginDTO.getPassword());
         Map<String, Object> m =new HashMap<>();
         if (Objects.isNull(user)){
             m.put("code",0);
-            m.put("message","账号或密码错误");
+            m.put("message","账号或密码错误！");
             m.put("data",null);
             return m;
         }
         m.put("code",20000);
-        m.put("message","登录成功");
+        m.put("message","登录成功！");
 
         Map<String, Object> m2 =new HashMap<>();
         m2.put("adminId",user.getId());
