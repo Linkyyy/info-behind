@@ -16,4 +16,6 @@ public interface UserMapper {
     @Insert("insert into user(id,username,password) values(#{id},#{username},#{password})")
     public int insert(User user);
 
+    @Select("select * from user where username=#{username} and password = #{password}")
+    public User adminLogin(String username, String password);
 }
