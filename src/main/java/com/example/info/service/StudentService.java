@@ -16,4 +16,9 @@ public class StudentService {
         int index = (page-1)*pageSize;
         return this.studentMapper.find(index,pageSize);
     }
+
+    public boolean deleteStudent(int stuId) {
+        int rowsAffected = studentMapper.deleteStudent(stuId);
+        return rowsAffected > 0;
+    }
 }

@@ -36,4 +36,7 @@ public interface StudentMapper {
 
     @Select("select * from student where stuId=#{stuId}")
     public Student findById(int stuId);
+
+    @Update("UPDATE student SET isDel = 1 WHERE stuId = #{stuId} AND isDel=0")
+    public int deleteStudent(int stuId);
 }

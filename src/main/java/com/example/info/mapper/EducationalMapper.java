@@ -14,9 +14,9 @@ public interface EducationalMapper {
     @Select("select * from educational where educationalId=#{educationalId}")
     public Educational findById(int educationalId);
 
-    @Insert("INSERT INTO educational (educationalId, educationalName, description, creator, createDate, isDel) VALUES (#{educationalId}, " +
-            "#{educationalName}, #{description}, 'admin', NOW(), 0)")
-    void addEducational(@Param("educationalId") int educationalId,
+    @Insert("INSERT INTO educational (educationalId, educationalName, description, creator, createDate, isDel) " +
+            "VALUES (#{educationalId}, #{educationalName}, #{description}, 'admin', NOW(), 0)")
+    public void addEducational(@Param("educationalId") int educationalId,
                         @Param("educationalName") String educationalName,
                         @Param("description") String description);
 

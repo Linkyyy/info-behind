@@ -17,7 +17,21 @@ public class GradeService {
         return gradeMapper.find(index, pageSize);
     }
 
+    /**
+     * 调试失败
+     */
+    public void addGrade(int gradeId, int specialityId, String gradeName) {
+        gradeMapper.addGrade(gradeId, specialityId, gradeName);
+    }
+
     public int deleteGrade(int gradeId) {
         return gradeMapper.deleteGrade(gradeId);
+    }
+
+    /**
+     * 调试失败
+     */
+    public void updateGrade(int gradeId, int specialityId, String gradeName) {
+        gradeMapper.updateGrade(gradeId, specialityId, gradeName);
     }
 }

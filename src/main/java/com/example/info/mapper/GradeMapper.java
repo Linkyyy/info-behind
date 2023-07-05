@@ -32,7 +32,20 @@ public interface GradeMapper {
     @Select("select * from grade where gradeId=#{gradeId}")
     public Grade findById(int gradeId);
 
+    /**
+     * 调试失败
+     */
+    @Insert("INSERT INTO grade (gradeId, specialityId, gradeName, creator, createDate, isDel) " +
+            "VALUES (#{gradeId}, #{specialityId}, #{gradeName}, 'admin', NOW(), 0)")
+    void addGrade(@Param("gradeId") int gradeId, @Param("specialityId") int specialityId, @Param("gradeName") String gradeName);
+
     @Update("UPDATE grade SET isDel = 1 WHERE gradeId = #{gradeId} AND isDel=0")
     public int deleteGrade(@Param("gradeId") int gradeId);
+
+    /**
+     * 调试失败
+     */
+    @Update("UPDATE grade SET specialityId = #{specialityId}, gradeName = #{gradeName} WHERE gradeId = #{gradeId}")
+    public void updateGrade(@Param("gradeId") int gradeId, @Param("specialityId") int specialityId, @Param("gradeName") String gradeName);
 
 }

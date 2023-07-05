@@ -16,4 +16,9 @@ public class SpecialityService {
         int index = (page-1)*pageSize;
         return this.specialityMapper.find(index,pageSize);
     }
+
+    public boolean deleteSpeciality(int specialityId) {
+        int rowsAffected = specialityMapper.deleteSpeciality(specialityId);
+        return rowsAffected > 0;
+    }
 }

@@ -33,4 +33,7 @@ public interface SpecialityMapper {
     @Select("select * from speciality where specialityId=#{specialityId}")
     public Speciality findById(int specialityId);
 
+    @Update("UPDATE speciality SET isDel = 1 WHERE specialityId = #{specialityId} AND isDel=0")
+    public int deleteSpeciality(int specialityId);
+    
 }
