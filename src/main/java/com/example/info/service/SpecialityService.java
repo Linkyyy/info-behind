@@ -2,8 +2,10 @@ package com.example.info.service;
 
 import com.example.info.mapper.SpecialityMapper;
 import com.example.info.poji.Speciality;
+import com.example.info.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,11 +24,16 @@ public class SpecialityService {
         return rowsAffected > 0;
     }
 
-    public void addSpeciality(int specialityId, int educationalId, String specialityName) {
-        specialityMapper.addSpeciality(specialityId, educationalId, specialityName);
+    @Transactional
+    public Result addSpeciality(int specialityId, int educationalId, String specialityName) {
+        try {
+            specialityMapper.addSpeciality(specialityId, educationalId, specialityName);
+            return Result.ok().data(null).message("提交成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error().data(null).message("请先登录！"+e.getMessage());
+        }
     }
 
-    public void updateSpeciality(int specialityId, int educationalId, String specialityName) {
-        specialityMapper.updateSpeciality(specialityId, educationalId, specialityName);
-    }
+
 }

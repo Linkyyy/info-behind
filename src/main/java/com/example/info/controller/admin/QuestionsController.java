@@ -21,4 +21,18 @@ public class QuestionsController {
         List<Questions> list= questionsService.find(page,pageSize);
         return Result.ok().data(list).message("查询成功！");
     }
+
+    @GetMapping("/getQuestions/{specialityId}")
+    @ResponseBody
+    public Result getQuestionsBySpecialityId(@PathVariable int specialityId,
+                                             @RequestParam(value = "page", defaultValue = "1") int page,
+                                             @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+        try {
+            List<Questions> questions = questionsService.getQuestionsBySpecialityId(specialityId, page, pageSize);
+            return Result.ok().data(questions).message("查询成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error().data(null).message("查询失败！"+e.getMessage());
+        }
+    }
 }

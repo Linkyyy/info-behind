@@ -1,12 +1,12 @@
 package com.example.info.controller.admin;
 
 import com.example.info.poji.Speciality;
+import com.example.info.service.EducationalService;
 import com.example.info.service.SpecialityService;
 import com.example.info.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -14,6 +14,9 @@ import java.util.List;
 public class SpecialityController {
     @Autowired
     private SpecialityService specialityService;
+
+    @Autowired
+    private EducationalService educationalService;
 
     @GetMapping("/getSpeciality")
     public Result getSpeciality(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "pageSize", defaultValue = "10")int pageSize){
@@ -39,24 +42,8 @@ public class SpecialityController {
     }
 
     @PostMapping("/addSpeciality")
-    public Result addSpeciality(@RequestParam int specialityId, @RequestParam int educationalId, @RequestParam String specialityName) {
-        try {
-            specialityService.addSpeciality(specialityId, educationalId, specialityName);
-            return Result.ok().data(new HashMap<>()).message("提交成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Result.error().data(new HashMap<>()).message("提交失败！" + e.getMessage());
-        }
+    public Result addSpeciality(int specialityId, int educationalId, String specialityName) {
+        return specialityService.addSpeciality(specialityId, educationalId, specialityName);
     }
 
-    @PostMapping("/editSpeciality")
-    public Result updateSpeciality(@RequestParam int specialityId, @RequestParam int educationalId, @RequestParam String specialityName) {
-        try {
-            specialityService.updateSpeciality(specialityId, educationalId, specialityName);
-            return Result.ok().data(new HashMap<>()).message("修改成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Result.error().data(new HashMap<>()).message("请先登录！" + e.getMessage());
-        }
-    }
 }

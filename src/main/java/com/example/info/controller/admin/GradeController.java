@@ -21,9 +21,6 @@ public class GradeController {
         return Result.ok().data(gradeList).message("查询成功！");
     }
 
-    /**
-     * 调试失败
-     */
     @PostMapping("/addGrade")
     @ResponseBody
     public Result addGrade(int gradeId, int specialityId, String gradeName) {

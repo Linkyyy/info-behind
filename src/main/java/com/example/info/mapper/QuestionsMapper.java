@@ -12,4 +12,9 @@ public interface QuestionsMapper {
 
     @Select("select * from questions where questionsId=#{questionsId}")
     public Questions findById(int questionsId);
+
+    @Select("SELECT * FROM questions WHERE specialityId = #{specialityId} LIMIT #{index}, #{pageSize}")
+    public List<Questions> getQuestionsBySpecialityId(@Param("specialityId") int specialityId,
+                                               @Param("index") int index,
+                                               @Param("pageSize") int pageSize);
 }

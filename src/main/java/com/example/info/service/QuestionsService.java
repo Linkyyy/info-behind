@@ -16,4 +16,9 @@ public class QuestionsService {
         int index = (page-1)*pageSize;
         return this.questionsMapper.find(index,pageSize);
     }
+
+    public List<Questions> getQuestionsBySpecialityId(int specialityId, int page, int pageSize) {
+        int index = (page - 1) * pageSize;
+        return questionsMapper.getQuestionsBySpecialityId(specialityId, index, pageSize);
+    }
 }
