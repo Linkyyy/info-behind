@@ -1,8 +1,5 @@
 package com.example.info.utils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Result {
     private Integer code;
     private String message;
@@ -10,6 +7,7 @@ public class Result {
     private Result(){
 
     }
+
     private Object data=new Object();
 
     public Integer getCode() {
@@ -62,6 +60,5 @@ public class Result {
         r.setMessage("失败！");
         return r;
     }
-
 
 }

@@ -1,17 +1,14 @@
 package com.example.info.mapper;
 
-import com.example.info.poji.Educational;
 import com.example.info.poji.Grade;
 import com.example.info.poji.Speciality;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
 public interface GradeMapper {
-    @Select("select * from grade")
+    @Select("select * from grade where isDel=0 limit #{index},#{pageSize}")
     @Results({
             @Result(column = "gradeId",property = "gradeId"),
             @Result(column = "gradeName",property = "gradeName"),
@@ -30,8 +27,12 @@ public interface GradeMapper {
             ),
 
     })
-    public List<Grade> find();
+    public List<Grade> find(int index, int pageSize);
 
     @Select("select * from grade where gradeId=#{gradeId}")
     public Grade findById(int gradeId);
+
+    @Update("UPDATE grade SET isDel = 1 WHERE gradeId = #{gradeId} AND isDel=0")
+    public int deleteGrade(@Param("gradeId") int gradeId);
+
 }

@@ -1,17 +1,14 @@
 package com.example.info.mapper;
 
 import com.example.info.poji.Grade;
-import com.example.info.poji.Speciality;
 import com.example.info.poji.Student;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
 public interface StudentMapper {
-    @Select("select * from student")
+    @Select("select * from student where isDel=0 limit #{index},#{pageSize}")
     @Results({
             @Result(column = "stuId",property = "stuId"),
             @Result(column = "stuName",property = "stuName"),
@@ -35,7 +32,7 @@ public interface StudentMapper {
             ),
 
     })
-    public List<Student> find();
+    public List<Student> find(int index,int pageSize);
 
     @Select("select * from student where stuId=#{stuId}")
     public Student findById(int stuId);

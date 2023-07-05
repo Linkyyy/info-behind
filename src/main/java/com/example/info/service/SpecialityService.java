@@ -12,7 +12,8 @@ public class SpecialityService {
     @Autowired
     private SpecialityMapper specialityMapper;
 
-    public List<Speciality> find(){
-        return specialityMapper.find();
+    public List<Speciality> find(int page, int pageSize){
+        int index = (page-1)*pageSize;
+        return this.specialityMapper.find(index,pageSize);
     }
 }

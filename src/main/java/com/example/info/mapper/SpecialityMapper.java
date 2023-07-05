@@ -2,16 +2,14 @@ package com.example.info.mapper;
 
 import com.example.info.poji.Educational;
 import com.example.info.poji.Speciality;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
 public interface SpecialityMapper {
 
-    @Select("select * from speciality")
+    @Select("select * from speciality where isDel=0 limit #{index},#{pageSize}")
     @Results({
             @Result(column = "specialityId",property = "specialityId"),
             @Result(column = "specialityName",property = "specialityName"),
@@ -30,7 +28,7 @@ public interface SpecialityMapper {
             ),
 
     })
-    public List<Speciality> find();
+    public List<Speciality> find(int index,int pageSize);
 
     @Select("select * from speciality where specialityId=#{specialityId}")
     public Speciality findById(int specialityId);
