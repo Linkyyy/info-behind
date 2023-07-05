@@ -18,4 +18,7 @@ public interface UserMapper {
 
     @Select("select * from user where username=#{username} and password = #{password}")
     public User adminLogin(String username, String password);
+
+    @Select("select * from educational")
+    public List<Educational>
 }
