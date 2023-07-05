@@ -21,4 +21,12 @@ public class SpecialityService {
         int rowsAffected = specialityMapper.deleteSpeciality(specialityId);
         return rowsAffected > 0;
     }
+
+    public void addSpeciality(int specialityId, int educationalId, String specialityName) {
+        specialityMapper.addSpeciality(specialityId, educationalId, specialityName);
+    }
+
+    public void updateSpeciality(int specialityId, int educationalId, String specialityName) {
+        specialityMapper.updateSpeciality(specialityId, educationalId, specialityName);
+    }
 }

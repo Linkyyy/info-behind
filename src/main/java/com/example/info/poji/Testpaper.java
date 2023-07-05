@@ -6,7 +6,7 @@ public class Testpaper {
     private int paperId;
     private int specialityId;
     private String paperName;
-    private String total;
+    private int total;
 
     private String creator;
     private Date createDate;
@@ -36,11 +36,11 @@ public class Testpaper {
         this.paperName = paperName;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 

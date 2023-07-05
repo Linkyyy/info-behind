@@ -13,13 +13,15 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-
     public List<User> find() {
         return userMapper.find();
     }
 
-
     public int insert(User user) {
         return userMapper.insert(user);
+    }
+
+    public User login(String username, String password) {
+        return userMapper.login(username, password);
     }
 }

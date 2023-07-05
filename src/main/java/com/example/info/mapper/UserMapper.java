@@ -3,6 +3,7 @@ package com.example.info.mapper;
 import com.example.info.poji.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -16,8 +17,7 @@ public interface UserMapper {
     @Insert("insert into user(id,username,password) values(#{id},#{username},#{password})")
     public int insert(User user);
 
-    @Select("select * from user where username=#{username} and password = #{password}")
-    public User adminLogin(String username, String password);
-
+    @Select("SELECT * FROM user WHERE username = #{username} AND password = #{password}")
+    public User login(@Param("username") String username, @Param("password") String password);
 
 }
