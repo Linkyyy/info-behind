@@ -5,6 +5,8 @@ import com.example.info.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 
 public class NormalController {
@@ -17,19 +19,23 @@ public class NormalController {
     }
 
     @PostMapping("/admin/login")
-    @ResponseBody
-    public Result adminLogin(String adminName, String password) {
+    public Result adminLogin(@RequestBody Map<String, String> map) {
+        String adminName = map.get("adminName");
+        String password = map.get("password");
+
         try {
             return normalService.adminLogin(adminName, password);
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("登录异常！");
+            return Result.error().data(null).message("登录异常！"+ e.getMessage());
         }
     }
 
     @PostMapping("/user/login")
-    @ResponseBody
-    public Result stuLogin(int stuId, String password) {
+    public Result stuLogin(@RequestBody Map<String, String> map) {
+        int stuId = Integer.parseInt(map.get("stuId"));
+        String password = map.get("password");
+
         try {
             return normalService.stuLogin(stuId, password);
         } catch (Exception e) {
