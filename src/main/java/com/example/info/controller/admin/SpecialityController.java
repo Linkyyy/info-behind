@@ -25,7 +25,7 @@ public class SpecialityController {
         return Result.ok().data(list).message("查询成功！");
     }
 
-    @PostMapping("/deleteSpeciality")
+    @GetMapping("/deleteSpeciality")
     public Result deleteSpeciality(@RequestParam int specialityId){
         try {
             // 调用Service层的方法来删除数据

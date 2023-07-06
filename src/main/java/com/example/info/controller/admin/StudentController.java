@@ -22,7 +22,7 @@ public class StudentController {
         return Result.ok().data(list).message("查询成功！");
     }
 
-    @PostMapping("/deleteStudent")
+    @GetMapping("/deleteStudent")
     public Result deleteStudent(@RequestParam int stuId){
         try {
             // 调用Service层的方法来删除数据

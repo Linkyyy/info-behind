@@ -33,7 +33,7 @@ public class GradeController {
         }
     }
 
-    @PostMapping("/deleteGrade")
+    @GetMapping("/deleteGrade")
     public Result deleteGrade(Integer gradeId) {
         try {
             int rowsAffected = gradeService.deleteGrade(gradeId);

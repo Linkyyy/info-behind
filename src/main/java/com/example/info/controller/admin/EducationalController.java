@@ -33,8 +33,8 @@ public class EducationalController {
         }
     }
 
-    @PostMapping("/deleteEducational")
-    public Result deleteEducational(@RequestParam int educationalId) {
+    @GetMapping("/deleteEducational")
+    public Result deleteEducational(int educationalId) {
         try {
             // 调用Service层的方法来删除数据
             boolean isDeleted = educationalService.deleteEducational(educationalId);
