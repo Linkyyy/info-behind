@@ -22,9 +22,9 @@ public class QuestionsController {
         return Result.ok().data(list).message("查询成功！");
     }
 
-    @GetMapping("/getQuestions/{specialityId}")
+    @GetMapping("/getQuestionBySpecialityId")
     @ResponseBody
-    public Result getQuestionsBySpecialityId(@PathVariable int specialityId,
+    public Result getQuestionsBySpecialityId(int specialityId,
                                              @RequestParam(value = "page", defaultValue = "1") int page,
                                              @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
         try {
@@ -32,7 +32,8 @@ public class QuestionsController {
             return Result.ok().data(questions).message("查询成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("请先登录！");
+            return Result.error().data(null).message("查询失败！"+e.getMessage());
         }
     }
+
 }

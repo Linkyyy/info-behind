@@ -25,7 +25,6 @@ public interface GradeMapper {
                      */
                     one = @One(select = "com.example.info.mapper.SpecialityMapper.findById")
             ),
-
     })
     public List<Grade> find(int index, int pageSize);
 

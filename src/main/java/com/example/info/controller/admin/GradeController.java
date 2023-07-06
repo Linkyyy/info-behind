@@ -21,9 +21,6 @@ public class GradeController {
         return Result.ok().data(gradeList).message("查询成功！");
     }
 
-    /**
-     * 调试失败
-     */
     @PostMapping("/addGrade")
     @ResponseBody
     public Result addGrade(int gradeId, int specialityId, String gradeName) {
@@ -32,7 +29,7 @@ public class GradeController {
             return Result.ok().data(null).message("提交成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("请先登录！"+e.getMessage());
+            return Result.error().data(null).message("提交失败！" + e.getMessage());
         }
     }
 

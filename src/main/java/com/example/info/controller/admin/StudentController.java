@@ -34,7 +34,7 @@ public class StudentController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("请先登录！");
+            return Result.error().data(null).message("删除失败！发生异常：" + e.getMessage());
         }
     }
 }

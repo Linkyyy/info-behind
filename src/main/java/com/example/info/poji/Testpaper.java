@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class Testpaper {
     private int paperId;
-    private int specialityId;
+
+    private Speciality speciality;
+
     private String paperName;
     private int total;
 
@@ -20,12 +22,12 @@ public class Testpaper {
         this.paperId = paperId;
     }
 
-    public int getSpecialityId() {
-        return specialityId;
+    public Speciality getSpeciality() {
+        return speciality;
     }
 
-    public void setSpecialityId(int specialityId) {
-        this.specialityId = specialityId;
+    public void setSpeciality(Speciality speciality) {
+        this.speciality = speciality;
     }
 
     public String getPaperName() {

@@ -21,4 +21,6 @@ public class QuestionsService {
         int index = (page - 1) * pageSize;
         return questionsMapper.getQuestionsBySpecialityId(specialityId, index, pageSize);
     }
+
+
 }

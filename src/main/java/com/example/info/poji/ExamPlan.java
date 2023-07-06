@@ -8,20 +8,13 @@ public class ExamPlan {
     private boolean isDel;
 
     private int id;
-    private int paperId;
-    private int gradeId;
+
+    private Testpaper testpaper;
+    private Grade grade;
 
     private Date beginTime;
 
     private Date endTime;
-
-    public int getPaperId(){ return paperId; }
-
-    public void setPaperId(int paperId){ this.paperId = paperId; }
-
-    public int getGradeId(){ return gradeId; }
-
-    public void setGradeId(int gradeId){ this.gradeId = gradeId; }
 
     public String getCreator() {
         return creator;
@@ -45,5 +38,45 @@ public class ExamPlan {
 
     public void setDel(boolean del) {
         isDel = del;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Testpaper getTestpaper() {
+        return testpaper;
+    }
+
+    public void setTestpaper(Testpaper testpaper) {
+        this.testpaper = testpaper;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    public Date getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(Date beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }
