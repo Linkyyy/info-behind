@@ -21,4 +21,10 @@ public class ExamPlanController {
         List<ExamPlan> list= planService.find(page,pageSize);
         return Result.ok().data(list).message("查询成功！");
     }
+
+    @GetMapping("/getExamPlanByGradeId")
+    public Result getDataByGradeId(int gradeId){
+
+        return Result.ok().data(planService.findByGradeId(gradeId));
+    }
 }

@@ -13,6 +13,11 @@ public class Student {
     private String status;
 
     private Grade grade;
+    private Achievement achievement;
+
+    private String creator;
+    private Date createDate;
+    private boolean isDel;
 
     public Grade getGrade() {
         return grade;
@@ -20,6 +25,14 @@ public class Student {
 
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    public Achievement getAchievement() {
+        return achievement;
+    }
+
+    public void setAchievement(Achievement achievement) {
+        this.achievement = achievement;
     }
 
     public int getStuId() {
@@ -101,8 +114,4 @@ public class Student {
     public void setDel(boolean del) {
         isDel = del;
     }
-
-    private String creator;
-    private Date createDate;
-    private boolean isDel;
 }

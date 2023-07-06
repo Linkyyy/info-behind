@@ -16,4 +16,7 @@ public class ExamPlanService {
         int index = (page-1)*pageSize;
         return this.examPlanMapper.find(index,pageSize);
     }
+    public ExamPlan findByGradeId(int gradeId){
+        return examPlanMapper.findByGradeId(gradeId);
+    }
 }

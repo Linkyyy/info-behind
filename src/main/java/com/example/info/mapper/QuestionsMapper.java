@@ -43,10 +43,7 @@ public interface QuestionsMapper {
                                                @Param("index") int index,
                                                @Param("pageSize") int pageSize);
 
-    @Select("SELECT * FROM questions WHERE specialityId = #{specialityId} LIMIT #{index}, #{pageSize}")
-    public List<Questions> getQuestionsByPaperId(@Param("specialityId") int specialityId,
-                                                      @Param("index") int index,
-                                                      @Param("pageSize") int pageSize);
-
+    @Select("SELECT * FROM questions WHERE questionsId IN (SELECT questionsId FROM paperContent WHERE paperId = #{paperId})")
+    public List<Questions> getQuestionsByPaperId(@Param("paperId") int paperId);
 
 }

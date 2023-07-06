@@ -32,4 +32,6 @@ public interface AchievementMapper {
     })
     public List<Achievement> find(int index, int pageSize);
 
+    @Select("select * from achievement where stuId=#{stuId}")
+    public Achievement findById(int stuId);
 }

@@ -1,5 +1,6 @@
 package com.example.info.mapper;
 
+import com.example.info.poji.Achievement;
 import com.example.info.poji.Grade;
 import com.example.info.poji.Student;
 import org.apache.ibatis.annotations.*;

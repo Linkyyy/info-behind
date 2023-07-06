@@ -22,5 +22,8 @@ public class QuestionsService {
         return questionsMapper.getQuestionsBySpecialityId(specialityId, index, pageSize);
     }
 
+    public List<Questions> getQuestionsByPaperId(int paperId) {
+        return questionsMapper.getQuestionsByPaperId(paperId);
+    }
 
 }
