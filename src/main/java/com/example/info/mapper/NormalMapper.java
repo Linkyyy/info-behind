@@ -1,6 +1,7 @@
 package com.example.info.mapper;
 
 import com.example.info.poji.AdminInfo;
+import com.example.info.poji.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -31,4 +32,7 @@ public interface NormalMapper {
 
     @Select("SELECT * FROM adminInfo WHERE adminName = #{adminName} AND password = #{password}")
     public AdminInfo adminlogin(@Param("adminName") String adminName, @Param("password") String password);
+
+    @Select("SELECT * FROM student WHERE stuId = #{stuId} AND password = #{password}")
+    public Student stuLogin(@Param("stuId") int stuId, @Param("password") String password);
 }

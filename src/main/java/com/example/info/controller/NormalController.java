@@ -26,4 +26,15 @@ public class NormalController {
             return Result.error().data(null).message("登录异常！");
         }
     }
+
+    @PostMapping("/user/login")
+    @ResponseBody
+    public Result stuLogin(int stuId, String password) {
+        try {
+            return normalService.stuLogin(stuId, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error().data(null).message("登录异常！"+e.getMessage());
+        }
+    }
 }
