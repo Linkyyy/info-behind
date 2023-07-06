@@ -32,7 +32,7 @@ public class QuestionsController {
             return Result.ok().data(questions).message("查询成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("查询失败！"+e.getMessage());
+            return Result.error().data(null).message("请先登录！");
         }
     }
 }

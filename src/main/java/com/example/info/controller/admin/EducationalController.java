@@ -29,7 +29,7 @@ public class EducationalController {
             return Result.ok().data(null).message("提交成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("提交失败！发生异常：" + e.getMessage());
+            return Result.error().data(null).message("请先登录！");
         }
     }
 
@@ -45,7 +45,7 @@ public class EducationalController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("删除失败！发生异常：" + e.getMessage());
+            return Result.error().data(null).message("请先登录！");
         }
     }
 
@@ -59,7 +59,7 @@ public class EducationalController {
             return Result.ok().data(null).message("修改成功！");
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.error().data(null).message("修改失败！发生异常：" + e.getMessage());
+            return Result.error().data(null).message("请先登录！");
         }
     }
 

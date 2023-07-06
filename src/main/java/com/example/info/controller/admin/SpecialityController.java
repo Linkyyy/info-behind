@@ -45,5 +45,4 @@ public class SpecialityController {
     public Result addSpeciality(int specialityId, int educationalId, String specialityName) {
         return specialityService.addSpeciality(specialityId, educationalId, specialityName);
     }
-
 }
