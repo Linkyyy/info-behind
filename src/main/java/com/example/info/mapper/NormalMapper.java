@@ -1,6 +1,8 @@
 package com.example.info.mapper;
 
+import com.example.info.poji.AdminInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
@@ -26,4 +28,7 @@ public interface NormalMapper {
 
     @Select("select count(*) from ExamPlan where isDel=0")
     public int getExamPlanCount();
+
+    @Select("SELECT * FROM adminInfo WHERE adminName = #{adminName} AND password = #{password}")
+    public AdminInfo adminlogin(@Param("adminName") String adminName, @Param("password") String password);
 }

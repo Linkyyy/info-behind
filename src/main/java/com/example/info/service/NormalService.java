@@ -1,6 +1,8 @@
 package com.example.info.service;
 
 import com.example.info.mapper.NormalMapper;
+import com.example.info.poji.AdminInfo;
+import com.example.info.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +26,14 @@ public class NormalService {
         map.put("examPlanCount", normalMapper.getExamPlanCount());
         return map;
     }
+
+    public Result adminLogin(String adminName, String password) {
+        AdminInfo adminInfo = normalMapper.adminlogin(adminName, password);
+        if (adminInfo != null) {
+            return Result.ok().data(adminInfo).message("登录成功！");
+        } else {
+            return Result.error().data(null).message("账号或密码错误！");
+        }
+    }
+
 }

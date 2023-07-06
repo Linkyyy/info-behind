@@ -15,7 +15,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("getStudent")
+    @GetMapping("/getStudent")
     public Result getStudent(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "pageSize", defaultValue = "10")int pageSize){
         System.out.println(page);
         List<Student> list= studentService.find(page,pageSize);
