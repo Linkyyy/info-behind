@@ -3,6 +3,7 @@ package com.example.info.mapper;
 import com.example.info.poji.Achievement;
 import com.example.info.poji.ExamPlan;
 import com.example.info.poji.Student;
+import com.example.info.poji.Testpaper;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -28,6 +29,12 @@ public interface AchievementMapper {
                     javaType = Student.class,
                     column = "stuId",
                     one = @One(select = "com.example.info.mapper.StudentMapper.findById")
+            ),
+            @Result(
+                    property =  "testpaper",
+                    javaType = Testpaper.class,
+                    column = "paperId",
+                    one = @One(select = "com.example.info.mapper.TestpaperMapper.findById")
             )
     })
     public List<Achievement> find(int index, int pageSize);

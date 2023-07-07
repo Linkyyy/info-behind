@@ -21,7 +21,7 @@ public class AchievementController {
         try {
             System.out.println(page);
             List<Achievement> list = achievementService.find(page, pageSize);
-            return Result.ok().data(list).message("查询成功！");
+            return Result.ok().data(list).message("查询成功！！！");
         } catch (Exception e) {
             e.printStackTrace();
             return Result.error().data(null).message("查询失败：" + e.getMessage());
